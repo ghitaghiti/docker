@@ -1,0 +1,2 @@
+from alpine
+CMD ["sh", "-c", "echo 'Whats your name ?' ; read name ; echo Hi, $name ! Nice to meet you !"]
