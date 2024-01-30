@@ -1,2 +1,17 @@
 from alpine
-CMD ["sh", "-c", "echo 'Whats your name ?' ; read name ; echo Hi, $name ! Nice to meet you !"]
+# CMD ["sh", "-c", "echo 'Whats your name ?' ; read name ; echo Hi, $name ! Nice to meet you !"]
+
+CMD ["sh", "-c", "echo 'What' 's your gender ? (M or F)' ; read GENDER ; \
+if [ \"$GENDER\" = 'F' ] || [ \"$GENDER\" = 'f' ] ; then \
+read -p ' Hi, cutie ! Did you go to the gym today ? (Y or N) ' GYM ; \
+read -p 'How much protein did you enjoy today, sweetie ? ' PROTEIN ; \
+GYM=$(echo $GYM | tr '[ :lower :]' '[ :upper :]') ; \
+echo \"$GYM, cutie ! Keep shining ! Protein intake : $PROTEIN grams \" ; \
+elif [ \"$GENDER\" = 'M' ] || [ \"$GENDER\" = 'm' ] ; then \
+read -p 'Hey, king ! Did you hit the gym today ? (Y or N) ' GYM ; \
+read -p 'How much protein did you consume today ? ' PROTEIN ; \
+GYM=$(echo $GYM | tr '[ :lower :]' '[ :upper :]') ; \
+echo \"$GYM, king ! Keep it up ! Protein intake : $PROTEIN grams\" ; \
+else \
+echo 'Sorry, I didn' 't understand your gender. Try again with M or F.' ; \
+fi"]
